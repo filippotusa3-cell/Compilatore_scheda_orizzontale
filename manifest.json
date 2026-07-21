@@ -1,0 +1,24 @@
+{
+  "name": "Compilatore Scheda Tecnica Ledwall - Euroledwall",
+  "short_name": "Scheda Ledwall",
+  "description": "Applicazione PWA per il calcolo automatico e la generazione in PDF delle schede tecniche Ledwall Euroledwall.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f4f6f9",
+  "theme_color": "#00AEEF",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
