@@ -296,9 +296,8 @@
     </div>
 
     <!-- PAGINA 1 -->
-    <div class="page">
+    <div class="page" id="page-1">
         <div class="header">
-            <!-- LOGO AGGIORNATO CON FILE DEFINITIVO -->
             <img class="logo" src="LOGO.png" alt="EUROLEDWALL Logo">
             <div class="title-box">
                 <h1>INDICAZIONI TECNICHE LEDWALL</h1>
@@ -340,13 +339,12 @@
             <li><span class="box" id="check-allestitore"></span> è necessario che tu predisponga una struttura per il montaggio (vedi allegati di seguito)</li>
         </ul>
 
-        <div class="footer-page" id="footer-1">1 di 2</div>
+        <div class="footer-page" id="footer-1">1 di 1</div>
     </div>
 
-    <!-- PAGINA 2 -->
-    <div class="page">
+    <!-- PAGINA 2: DIMENSIONI E INCASSO (Nascosta se Autoportante) -->
+    <div class="page" id="page-2" style="display: none;">
         <div class="header">
-            <!-- LOGO AGGIORNATO CON FILE DEFINITIVO -->
             <img class="logo" src="LOGO.png" alt="EUROLEDWALL Logo">
             <div class="title-box">
                 <h1>DIMENSIONI E INCASSO</h1>
@@ -385,7 +383,6 @@
         </div>
 
         <div class="diagram-container">
-            <!-- IMMAGINE SCHEMA AGGIORNATA CON FILE DEFINITIVO -->
             <img class="diagram-img" src="STRUTTURA.png" alt="Schema Ledwall">
         </div>
 
@@ -397,7 +394,7 @@
             </ul>
         </div>
 
-        <div class="footer-page" id="footer-2">2 di 2</div>
+        <div class="footer-page" id="footer-2">2 di 4</div>
     </div>
 
     <!-- PAGINA 3: BASE DI APPOGGIO (Mostrata solo se Allestitore) -->
@@ -467,9 +464,10 @@
                 outRossa.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;';
             }
 
-            // 5. Gestione spunte Struttura e Visibilità Pagine 3 e 4 (ESEMPIO1 e ESEMPIO2)
+            // 5. Gestione spunte Struttura e Visibilità Pagine 2, 3 e 4
             let checkAuto = document.getElementById('check-auto');
             let checkAllest = document.getElementById('check-allestitore');
+            let p2 = document.getElementById('page-2');
             let p3 = document.getElementById('page-3');
             let p4 = document.getElementById('page-4');
             let f1 = document.getElementById('footer-1');
@@ -479,20 +477,25 @@
                 checkAuto.classList.add('checked');
                 checkAllest.classList.remove('checked');
                 
-                // Se è autoportante, nasconde le pagine allegati allestitore
+                // Se è autoportante a cura di Euroledwall, nasconde Pagina 2, 3 e 4
+                p2.style.display = 'none';
                 p3.style.display = 'none';
                 p4.style.display = 'none';
-                f1.innerText = '1 di 2';
-                f2.innerText = '2 di 2';
+                
+                // Il footer indica che c'è solo la prima pagina
+                f1.innerText = '1 di 1';
             } else {
                 checkAuto.classList.remove('checked');
                 checkAllest.classList.add('checked');
                 
-                // Se è "Allestitore", mostra le due pagine aggiuntive con ESEMPIO2 ed ESEMPIO1
+                // Se è "Allestitore", mostra Pagina 2 (Incasso) e le Pagine 3 e 4 (Foto Esempi)
+                p2.style.display = 'flex';
                 p3.style.display = 'flex';
                 p4.style.display = 'flex';
+                
+                // Il footer numera correttamente tutte le 4 pagine
                 f1.innerText = '1 di 4';
-                f2.innerText = '2 di 4';
+                if(f2) f2.innerText = '2 di 4';
             }
         }
 
